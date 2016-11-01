@@ -28,6 +28,7 @@ module.exports = {
   debug: true,
   devtool: 'source-map',
   externals: {
+    'react/addons': true,
     'react/lib/ExecutionEnvironment': true,
     'react/lib/ReactContext': true
   }
