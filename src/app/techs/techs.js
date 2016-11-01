@@ -27,9 +27,10 @@ export class Techs extends Component {
 
   componentDidMount() {
     axios
-      .get('app/techs/techs.json')
-      .then(response => {
-        this.setState({techs: response.data});
+      .get('https://jsonblob.com/api/5819079fe4b0a828bd1dd9e3')
+      .then(res => res.data)
+      .then(techs => {
+        this.setState({techs});
       });
   }
 
@@ -40,8 +41,8 @@ export class Techs extends Component {
           Cooked with all these awesome technologies:
         </h2>
         <div style={styles.techs}>
-          {this.state.techs.map((tech, i) => (
-            <Tech key={i} tech={tech}/>
+          {this.state.techs.map(tech => (
+            <Tech key={tech.key} tech={tech}/>
           ))}
         </div>
       </div>

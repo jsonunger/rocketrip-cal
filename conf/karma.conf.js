@@ -13,7 +13,9 @@ module.exports = function (config) {
       'PhantomJS'
     ],
     frameworks: [
-      'jasmine'
+      'mocha',
+      'chai',
+      'sinon'
     ],
     files: [
       'node_modules/es6-shim/es6-shim.js',
@@ -34,7 +36,9 @@ module.exports = function (config) {
       noInfo: true
     },
     plugins: [
-      require('karma-jasmine'),
+      require('karma-mocha'),
+      require('karma-chai'),
+      require('karma-sinon'),
       require('karma-junit-reporter'),
       require('karma-coverage'),
       require('karma-phantomjs-launcher'),

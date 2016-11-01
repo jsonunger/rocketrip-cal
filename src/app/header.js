@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Clock} from './clock';
 
 const styles = {
   header: {
@@ -10,12 +11,6 @@ const styles = {
     flex: 1,
     fontSize: '1.5rem',
     margin: '1rem'
-  },
-  date: {
-    flex: 1,
-    textAlign: 'right',
-    margin: '1rem',
-    color: 'white'
   }
 };
 
@@ -28,9 +23,7 @@ export class Header extends Component {
             Fountain Generator
           </a>
         </p>
-        <p style={styles.date}>
-          Generated with FountainJS v1.0.0-rc1 on Tue Nov 01 2016 13:35:47 GMT-0400 (EDT)
-        </p>
+        <Clock/>
       </header>
     );
   }
