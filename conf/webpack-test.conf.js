@@ -7,7 +7,6 @@ module.exports = {
         loader: 'eslint'
       }
     ],
-
     loaders: [
       {
         test: /.json$/,
