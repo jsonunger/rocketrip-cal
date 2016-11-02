@@ -5,10 +5,18 @@ export const setDate = date => ({
   date
 });
 
-export const moveForward = () => ({
-  type: DATE_FORWARD
-});
+export const moveForward = () => (dispatch, getState) => {
+  const {view} = getState();
+  dispatch({
+    type: DATE_FORWARD,
+    view
+  });
+};
 
-export const moveBackward = () => ({
-  type: DATE_BACKWARD
-});
+export const moveBackward = () => (dispatch, getState) => {
+  const {view} = getState();
+  dispatch({
+    type: DATE_BACKWARD,
+    view
+  });
+};

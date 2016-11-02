@@ -4,6 +4,7 @@
   "description": "Calendar application for technical assessment",
   "dependencies": {
     "axios": "^0.9.1",
+    "classnames": "^2.2.5",
     "lodash": "^4.16.6",
     "moment": "^2.15.2",
     "moment-timezone": "^0.5.7",

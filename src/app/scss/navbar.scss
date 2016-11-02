@@ -37,10 +37,13 @@ $border: darken($button-border, 12%);
       line-height: normal;
       white-space: nowrap;
       font-size: 16px;
-      &:focus, &:hover, &.active {
+      &:hover, &.active {
         color: $button-color;
         background-color: $background;
         border-color: $border;
+      }
+      &:focus {
+        outline: none;
       }
     }
   }

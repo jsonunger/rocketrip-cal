@@ -6,9 +6,9 @@ export default function (state = new Date('November 2 2016'), action) {
     case SET_DATE:
       return action.date;
     case DATE_FORWARD:
-      return timeTravel(state, 1, 'w');
+      return timeTravel(state, 1, `${action.view}s`);
     case DATE_BACKWARD:
-      return timeTravel(state, -1, 'w');
+      return timeTravel(state, -1, `${action.view}s`);
     default:
       return state;
   }
