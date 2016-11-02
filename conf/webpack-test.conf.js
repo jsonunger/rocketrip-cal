@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   module: {
     preLoaders: [
@@ -23,7 +25,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"testing"'
+    })
+  ],
   debug: true,
   devtool: 'source-map',
   externals: {

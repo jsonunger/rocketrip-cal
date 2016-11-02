@@ -47,6 +47,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
     }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"development"'
+    }),
     new webpack.HotModuleReplacementPlugin()
   ],
   postcss: () => [autoprefixer],
