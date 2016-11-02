@@ -1,4 +1,4 @@
-import {SET_DATE, DATE_FORWARD, DATE_BACK} from '../utils/constants';
+import {SET_DATE, DATE_FORWARD, DATE_BACKWARD} from '../utils/constants';
 import {timeTravel} from '../utils/dateManipulation';
 
 export default function (state = new Date('November 2 2016'), action) {
@@ -7,7 +7,7 @@ export default function (state = new Date('November 2 2016'), action) {
       return action.date;
     case DATE_FORWARD:
       return timeTravel(state, 1, 'w');
-    case DATE_BACK:
+    case DATE_BACKWARD:
       return timeTravel(state, -1, 'w');
     default:
       return state;

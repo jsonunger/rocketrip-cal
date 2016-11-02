@@ -18,13 +18,7 @@ describe('Header', () => {
   });
 
   it('has proper styling', () => {
-    ['display', 'align-items', 'background-color'].forEach(property => {
-      expect(header).to.have.style(property);
-    });
-
-    ['flex', 'font-size', 'margin'].forEach(property => {
-      expect(header.find('p')).to.have.style(property);
-    });
+    expect(header.find('p')).to.have.className('title');
   });
 
   it('contains the proper title', () => {

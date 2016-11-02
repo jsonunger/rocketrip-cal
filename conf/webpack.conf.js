@@ -36,7 +36,7 @@ module.exports = {
         exclude: /node_modules/,
         loaders: [
           'react-hot',
-          'babel'
+          'babel?presets[]=es2015&presets[]=stage-0&presets[]=react&plugins[]=transform-object-rest-spread'
         ]
       }
     ]
