@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Header} from './header';
-import {Title} from './title';
+import {Header} from './header/header';
 import {Techs} from './techs/techs';
-import {Footer} from './footer';
+import {Footer} from './footer/footer';
 
 const styles = {
   container: {
@@ -23,7 +22,6 @@ export class Main extends Component {
       <div style={styles.container}>
         <Header/>
         <main style={styles.main}>
-          <Title/>
           <Techs/>
         </main>
         <Footer/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Clock} from './clock';
+import {Clock} from '../clock/clock';
 
 const styles = {
   header: {
@@ -9,8 +9,9 @@ const styles = {
   },
   title: {
     flex: 1,
-    fontSize: '1.5rem',
-    margin: '1rem'
+    fontSize: '1.2rem',
+    margin: '1rem',
+    color: 'white'
   }
 };
 
@@ -19,9 +20,7 @@ export class Header extends Component {
     return (
       <header style={styles.header}>
         <p style={styles.title}>
-          <a href="https://github.com/FountainJS/generator-fountain-webapp" target="_blank">
-            Fountain Generator
-          </a>
+          Rocketrip Calendar
         </p>
         <Clock/>
       </header>

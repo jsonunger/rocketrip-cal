@@ -20,8 +20,11 @@ export class Clock extends Component {
 
   componentDidMount() {
     this._runningClock = setInterval(() => {
-      this.setState({time: new Date()});
-    }, 1000);
+      const time = moment(new Date());
+      if (!(time.isSame(this.state.time, 'hour') && time.isSame(this.state.time, 'minute'))) {
+        this.setState({time: time.toDate()});
+      }
+    }, 10000);
   }
 
   componentWillUnmount() {
@@ -29,6 +32,11 @@ export class Clock extends Component {
   }
 
   render() {
-    return <p style={styles.date}>{moment(this.state.time).format('ddd, MMM Do, h:mm:ss a')}</p>;
+    const currentTime = moment(this.state.time).format('ddd, MMM Do, h:mm A');
+    return (
+      <p style={styles.date}>
+        {currentTime}
+      </p>
+    );
   }
 }
