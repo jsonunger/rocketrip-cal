@@ -1,14 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export class Footer extends Component {
-  render() {
-    return (
-      <footer>
-        Build with ♥ by&nbsp;
-        <a href="http://jsonunger.com">
-          Jason Unger
-        </a>
-      </footer>
-    );
-  }
-}
+export const Footer = () => (
+  <footer>
+    Build with ♥ by&nbsp;
+    <a href="http://jsonunger.com">
+      Jason Unger
+    </a>
+  </footer>
+);
