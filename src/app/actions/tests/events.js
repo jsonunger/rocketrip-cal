@@ -1,5 +1,5 @@
 import chai, {expect} from 'chai';
-import nock from 'nock';
+import mockFetch from 'fetch-mock';
 import {fetchEvents} from '../events';
 import {RECEIVE_EVENTS} from '../../utils/constants';
 
@@ -13,15 +13,17 @@ export default function (mockStore) {
       store = mockStore({events: []});
     });
 
-    afterEach(() => {
-      nock.cleanAll();
-    });
-
-    const eventsAPICall = nock('https://jsonblob.com').get('/api/581a0c9fe4b0a828bd1e5f68');
+    mockFetch.get('*', [{
+      name: 'Breakfast',
+      start: '2016-11-05T12:30:00.000Z',
+      end: '2016-11-05T13:00:00.000Z'
+    }, {
+      name: 'Voting',
+      start: '2016-11-08T15:00:00.000Z',
+      end: '2016-11-08T16:00:00.000Z'
+    }]);
 
     it('dispatches RECEIVE_EVENTS', () => {
-      eventsAPICall.reply(200);
-
       return store.dispatch(fetchEvents())
         .then(() => {
           const actionTypes = store.getActions().map(action => action.type);
@@ -30,13 +32,11 @@ export default function (mockStore) {
     });
 
     it('sends events to reducer', () => {
-      eventsAPICall.reply(200);
-
       return store.dispatch(fetchEvents())
         .then(() => {
           const eventAction = store.getActions()[0];
           expect(eventAction).to.have.property('events');
-          expect(eventAction.events).to.have.length(4);
+          expect(eventAction.events).to.have.length(2);
           expect(eventAction.events).to.include.something.with.property('name', 'Voting');
         });
     });

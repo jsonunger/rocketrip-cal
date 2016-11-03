@@ -10,7 +10,7 @@ export default function (mockStore) {
     let store;
 
     beforeEach(() => {
-      store = mockStore({date: new Date('November 2 2016')});
+      store = mockStore({date: new Date('November 2 2016'), view: 'week'});
     });
 
     it('dispatches SET_DATE', () => {
@@ -21,13 +21,13 @@ export default function (mockStore) {
     });
 
     it('dispatches DATE_FORWARD', () => {
-      store.dispatch(moveForward(new Date('September 25 2016')));
+      store.dispatch(moveForward());
       const actionTypes = store.getActions().map(action => action.type);
       expect(actionTypes).to.include(DATE_FORWARD);
     });
 
     it('dispatches DATE_BACKWARD', () => {
-      store.dispatch(moveBackward(new Date('September 25 2016')));
+      store.dispatch(moveBackward());
       const actionTypes = store.getActions().map(action => action.type);
       expect(actionTypes).to.include(DATE_BACKWARD);
     });

@@ -1,13 +1,11 @@
-import axios from 'axios';
+const resData = res => res.json();
 
-const resData = res => res.data;
+export const get = url => fetch(url).then(resData);
 
-export const get = url => axios.get(url).then(resData);
+export const post = (url, data) => fetch(url, {method: 'POST', body: JSON.stringify(data), headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}}).then(resData);
 
-export const post = (url, data) => axios.post(url, data).then(resData);
+export const del = url => fetch(url, {method: 'DELETE'});
 
-export const del = url => axios.delete(url).then(resData);
+export const put = (url, data) => fetch(url, {method: 'PUT', body: JSON.stringify(data), headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}}).then(resData);
 
-export const put = (url, data) => axios.put(url, data).then(resData);
-
-export default (method, url, data) => axios[method](url, data).then(resData);
+export default (method, url, data) => fetch(url, {method, body: JSON.stringify(data), headers: {'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Methods': 'DELETE'}}).then(resData);
