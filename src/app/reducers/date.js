@@ -1,5 +1,5 @@
 import {SET_DATE, DATE_FORWARD, DATE_BACKWARD} from '../utils/constants';
-import {timeTravel} from '../utils/dateManipulation';
+import {timeTravel} from '../utils/date';
 
 export default function (state = new Date('November 2 2016'), action) {
   switch (action.type) {

@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Calendar application for technical assessment",
   "dependencies": {
-    "axios": "^0.9.1",
     "classnames": "^2.2.5",
-    "date-arithmetic": "^3.1.0",
     "dom-helpers": "^3.0.0",
     "es6-promise": "^4.0.5",
     "isomorphic-fetch": "^2.2.1",
@@ -84,6 +82,7 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "scripts": {
+    "start": "gulp serve",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",

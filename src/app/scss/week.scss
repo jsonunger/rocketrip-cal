@@ -58,8 +58,8 @@
     .time {
       flex: none;
     }
-    > * + * > * {
-      border-left: 1px solid $cell-border;
+    > * + * > *:not(.event) {
+      border-left: 1px solid $cell-color;
     }
     .day {
       width: 100%;
@@ -73,8 +73,8 @@
       }
     }
     .time-group {
-      border-bottom: 1px solid $cell-border;
-      min-height: 35px;
+      border-bottom: 1px solid $cell-color;
+      min-height: 40px;
       display: flex;
       flex-flow: column nowrap;
     }
