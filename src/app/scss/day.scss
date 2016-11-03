@@ -1,0 +1,11 @@
+@import './colors.scss';
+
+.day {
+  position: relative;
+  .slot {
+    border-top: 1px solid lighten($cell-color, 10%);
+  }
+  &.today {
+    background-color: $today;
+  }
+}

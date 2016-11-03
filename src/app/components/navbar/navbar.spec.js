@@ -26,7 +26,7 @@ describe('NavBar', () => {
     navbar.findWhere(n => n.text() === 'Back').simulate('click');
     navbar.update();
     expect(navbar.find('.nav-label').text()).to.not.equal(range);
-    navbar.findWhere(n => n.text() === 'Today').simulate('click');
+    navbar.findWhere(n => n.html() === '<button>Today</button>').simulate('click');
     navbar.update();
     expect(navbar.find('.nav-label').text()).to.equal(range);
   });
