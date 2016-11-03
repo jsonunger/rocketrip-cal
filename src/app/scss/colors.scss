@@ -3,4 +3,7 @@ $button-background: #fff;
 $button-border: #ccc;
 $cal-border: #DDD;
 $cell-color: #CCC;
-$today: rgba(243,206,200,0.3);
+$today: rgba(255,93,0,0.2);
+$event-background: #ff9e5e;
+$event-border: darken($event-background, 10%);
+$event-color: #fff;

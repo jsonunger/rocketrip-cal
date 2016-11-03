@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {format} from '../../utils/dateManipulation';
-import dates from 'date-arithmetic';
+import dates, {format} from '../../utils/date';
 
 import {Slot} from './slot';
 

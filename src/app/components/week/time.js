@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import dates, {startOf, endOf, diff} from 'date-arithmetic';
+import dateMath from '../../utils/date';
 import cn from 'classnames';
 
 import {TimeGroup} from './timeGroup';
@@ -8,7 +8,7 @@ export class Time extends Component {
   static propTypes = {
     style: PropTypes.object,
     className: PropTypes.string,
-    children: PropTypes.element,
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     showLabel: PropTypes.bool
   }
 
@@ -18,13 +18,13 @@ export class Time extends Component {
   }
 
   render() {
-    const min = diff(startOf(new Date(), 'day'), endOf(new Date(), 'day'), 'minutes');
+    const min = dateMath.diff(dateMath.startOf(new Date(), 'day'), dateMath.endOf(new Date(), 'day'), 'minutes');
     const slotNum = Math.ceil(min / 60);
     const slots = [];
-    let date = startOf(new Date(), 'day');
+    let date = dateMath.startOf(new Date(), 'day');
     let next = date;
     for (let i = 0; i < slotNum; i++) {
-      next = dates.add(date, 60, 'minutes');
+      next = dateMath.add(date, 60, 'minutes');
       slots.push(<TimeGroup key={i} showLabel={this.props.showLabel} value={date}/>);
       date = next;
     }

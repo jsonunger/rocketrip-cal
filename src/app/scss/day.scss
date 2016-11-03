@@ -1,5 +1,4 @@
 @import './colors.scss';
-
 .day {
   position: relative;
   .slot {
@@ -7,5 +6,43 @@
   }
   &.today {
     background-color: $today;
+  }
+  .event {
+    cursor: pointer;
+    padding: 2px 5px;
+    background-color: $event-background;
+    border-radius: 5px;
+    color: $event-color;
+    border: 1px solid $event-border;
+    display: flex;
+    max-height: 100%;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+  }
+  .event-label {
+    @extend .ellipsis;
+    font-size: 80%;
+    flex: none;
+    padding-right: 5px;
+    width: auto;
+    > span {
+      margin-bottom: 10px;
+    }
+    .event-content {
+      width: 100%;
+      flex: 1 1 0;
+      word-wrap: break-word;
+      line-height: 1;
+      height: 100%;
+      min-height: 1em;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+  }
+  .overlap {
+    box-shadow: -1px 1px 5px 0px rgba(51, 51, 51, .5);
   }
 }

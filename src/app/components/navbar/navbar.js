@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-
-import {dateHeader} from '../../utils/dateManipulation';
+import {createDateHeader} from '../../utils/date';
 import {titleCase} from '../../utils/stringManipulation';
 import {setDate, moveForward, moveBackward} from '../../actions/date';
 import {setView} from '../../actions/view';
@@ -36,7 +35,7 @@ export class NavBar extends Component {
           <button onClick={this.props.today}>Today</button>
         </span>
         <span className="nav-label">
-          {dateHeader(this.props.date, this.props.view)}
+          {createDateHeader(this.props.date, this.props.view)}
         </span>
         <span className="nav-buttons">
           <button onClick={this.props.back}>Back</button>

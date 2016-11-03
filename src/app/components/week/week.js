@@ -1,21 +1,18 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
-import dateMath from 'date-arithmetic';
 import getWidth from 'dom-helpers/query/width';
 import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import cn from 'classnames';
 import {Header} from './header';
 import {Time} from './time';
-import {Day} from './day';
-import {format, dateRange, isToday} from '../../utils/dateManipulation';
+import {Day} from '../day/day';
+import dateMath from '../../utils/date';
 
 function makeDays(dates, events) {
   return dates.map((date, i) => {
     const dayEvents = events.filter(event => {
-      const dateStart = dateMath.startOf(date, 'day');
-      const dateEnd = dateMath.endOf(date, 'day');
-      return dateMath.lte(dateStart, new Date(event.end), 'day') && dateMath.gt(dateEnd, new Date(event.start), 'day');
+      return dateMath.inRange(date, new Date(event.start), new Date(event.end), 'day');
     });
     const percentage = `${(1 / 7) * 100}%`;
     const style = {flexBasis: percentage, maxWidth: percentage};
@@ -31,11 +28,7 @@ export class Week extends Component {
       end: PropTypes.string
     })).isRequired,
     date: PropTypes.instanceOf(Date),
-    scrollTo: PropTypes.instanceOf(Date)
-  }
-
-  static defaultProps = {
-    scrollTo: dateMath.startOf(new Date(), 'day')
+    view: PropTypes.string
   }
 
   constructor(props) {
@@ -61,7 +54,7 @@ export class Week extends Component {
   }
 
   render() {
-    const dates = dateRange(this.props.date);
+    const dates = dateMath.createDateRange(this.props.date, this.props.view);
     /* eslint-disable */
     const timeRef = ref => this._gutters[1] = ref && findDOMNode(ref);
     /* eslint-enable */
@@ -78,7 +71,7 @@ export class Week extends Component {
   }
 
   checkScroll() {
-    const {scrollTo} = this.props;
+    const scrollTo = dateMath.startOf(new Date(), 'day');
     const mill = scrollTo - dateMath.startOf(scrollTo, 'day');
     const total = Number(dateMath.endOf(new Date(), 'day')) - Number(dateMath.startOf(new Date(), 'day'));
     this._scroll = mill / total;
@@ -137,19 +130,20 @@ export class Week extends Component {
     const percentage = `${(1 / 7) * 100}%`;
     const style = {flexBasis: percentage, maxWidth: percentage};
     return dates.map((date, i) => (
-      <div key={i} className={cn('header-cell', {today: isToday(date)})} style={style}>
+      <div key={i} className={cn('header-cell', {today: dateMath.isToday(date)})} style={style}>
         <a href="#">
-          <Header label={format(date, 'ddd, MMM Do')}/>
+          <Header label={dateMath.format(date, 'ddd, MMM Do')}/>
         </a>
       </div>
     ));
   }
 }
 
-function mapStateToProps({events, date}) {
+function mapStateToProps({events, date, view}) {
   return {
     events,
-    date
+    date,
+    view
   };
 }
 
