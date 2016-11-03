@@ -14,6 +14,27 @@
     border-top: 2px solid $cal-border;
     overflow-y: auto;
     position: relative;
+    max-height: 600px;
+    > .time {
+      flex: none;
+    }
+    > * {
+      border-left: 1px solid $cell-color;
+    }
+    .time {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      .time-group {
+        flex: 1;
+      }
+    }
+    .time-group {
+      border-bottom: 1px solid $cell-color;
+      min-height: 40px;
+      display: flex;
+      flex-flow: column nowrap;
+    }
   }
   .week-header {
     display: flex;
@@ -54,5 +75,16 @@
     min-height: 25px;
     display: flex;
     flex-direction: row;
+  }
+  .time {
+    flex: none;
+    white-space: nowrap;
+  }
+  .label {
+    padding: 0 5px;
+    text-align: right;
+  }
+  .slot {
+    flex: 1 0 0;
   }
 }

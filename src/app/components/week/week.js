@@ -1,10 +1,12 @@
 import React, {Component, PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
 import {startOf, endOf} from 'date-arithmetic';
 import getWidth from 'dom-helpers/query/width';
 import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import cn from 'classnames';
 import {Header} from './header';
+import {Time} from './time';
 import {format, dateRange, isToday} from '../../utils/dateManipulation';
 
 export class Week extends Component {
@@ -46,11 +48,14 @@ export class Week extends Component {
 
   render() {
     const dates = dateRange(this.props.date);
+    /* eslint-disable */
+    const timeRef = ref => this._gutters[1] = ref && findDOMNode(ref);
+    /* eslint-enable */
     return (
       <div id="week">
         {this.header(dates, this.state.width)}
         <div ref={`cal`} className="view">
-          {/* <TimeColumn/> */}
+          <Time showLabel style={{width: this.state.width}} ref={timeRef}/>
           {/* EVENTS */}
         </div>
       </div>
