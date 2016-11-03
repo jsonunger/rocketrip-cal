@@ -1,6 +1,15 @@
 .cal {
-  flex: 1;
-  min-height: 600px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   min-width: 1000px;
-  margin: 15px;
+  padding: 15px;
+}
+
+.cal *,
+.cal *:before,
+.cal *:after {
+  box-sizing: inherit;
 }

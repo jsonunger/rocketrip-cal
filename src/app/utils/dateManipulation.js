@@ -26,10 +26,10 @@ export function dateHeader(date, view = 'week') {
 export function dateRange(date, view = 'week') {
   let start = moment(date).startOf(view);
   const end = moment(date).endOf(view);
-  const dates = [start];
+  const dates = [start.clone().toDate()];
   while (!start.isSame(end, 'day')) {
     start = start.clone().add(1, 'day');
-    dates.push(start);
+    dates.push(start.clone().toDate());
   }
   return dates;
 }

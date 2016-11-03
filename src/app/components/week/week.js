@@ -1,13 +1,27 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
-import {startOf, endOf} from 'date-arithmetic';
+import dateMath from 'date-arithmetic';
 import getWidth from 'dom-helpers/query/width';
 import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import cn from 'classnames';
 import {Header} from './header';
 import {Time} from './time';
+import {Day} from './day';
 import {format, dateRange, isToday} from '../../utils/dateManipulation';
+
+function makeDays(dates, events) {
+  return dates.map((date, i) => {
+    const dayEvents = events.filter(event => {
+      const dateStart = dateMath.startOf(date, 'day');
+      const dateEnd = dateMath.endOf(date, 'day');
+      return dateMath.lte(dateStart, new Date(event.end), 'day') && dateMath.gt(dateEnd, new Date(event.start), 'day');
+    });
+    const percentage = `${(1 / 7) * 100}%`;
+    const style = {flexBasis: percentage, maxWidth: percentage};
+    return <Day key={i} style={style} date={date} events={dayEvents}/>;
+  });
+}
 
 export class Week extends Component {
   static propTypes = {
@@ -21,7 +35,7 @@ export class Week extends Component {
   }
 
   static defaultProps = {
-    scrollTo: startOf(new Date(), 'day')
+    scrollTo: dateMath.startOf(new Date(), 'day')
   }
 
   constructor(props) {
@@ -51,12 +65,13 @@ export class Week extends Component {
     /* eslint-disable */
     const timeRef = ref => this._gutters[1] = ref && findDOMNode(ref);
     /* eslint-enable */
+    const days = makeDays(dates, this.props.events);
     return (
       <div id="week">
         {this.header(dates, this.state.width)}
         <div ref={`cal`} className="view">
-          <Time showLabel style={{width: this.state.width}} ref={timeRef}/>
-          {/* EVENTS */}
+          <Time showLabel style={{width: this.state.width}} ref={timeRef} className="time"/>
+          {days}
         </div>
       </div>
     );
@@ -64,8 +79,8 @@ export class Week extends Component {
 
   checkScroll() {
     const {scrollTo} = this.props;
-    const mill = scrollTo - startOf(scrollTo, 'day');
-    const total = Number(endOf(new Date(), 'day')) - Number(startOf(new Date(), 'day'));
+    const mill = scrollTo - dateMath.startOf(scrollTo, 'day');
+    const total = Number(dateMath.endOf(new Date(), 'day')) - Number(dateMath.startOf(new Date(), 'day'));
     this._scroll = mill / total;
   }
 
@@ -109,9 +124,9 @@ export class Week extends Component {
     };
 
     return (
-      <div className={cn('week-header', {overflow: this.state.overflowing})} style={style}>
+      <div id="week-header" className={cn({overflow: this.state.overflowing})} style={style}>
         <div className="row">
-          <div ref={setRef} className="label header-gutter" style={{width}}/>
+          <div ref={setRef} className="label" style={{width}}/>
           {this.headerCells(dates)}
         </div>
       </div>
