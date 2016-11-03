@@ -36,7 +36,7 @@ module.exports = {
         exclude: /node_modules/,
         loaders: [
           'react-hot',
-          'babel'
+          'babel?presets[]=es2015&presets[]=stage-0&presets[]=react&plugins[]=transform-object-rest-spread'
         ]
       }
     ]
@@ -46,6 +46,9 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: conf.path.src('index.html')
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"development"'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],

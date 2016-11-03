@@ -1,0 +1,57 @@
+@import './colors';
+
+$background: darken($button-background, 10%);
+$border: darken($button-border, 12%);
+
+.navbar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+  .nav-buttons {
+    display: inline-block;
+    white-space: nowrap;
+    > button:not(:first-child):not(:last-child) {
+      border-radius: 0px;
+    }
+    > button:first-child:not(:last-child) {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    > button:last-child:not(:first-child) {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    button {
+      color: $button-color;
+      cursor: pointer;
+      display: inline-block;
+      margin: 0;
+      text-align: center;
+      vertical-align: middle;
+      background: none;
+      background-image: none;
+      border: 1px solid $button-border;
+      padding: .375rem 1rem;
+      border-radius: 4px;
+      line-height: normal;
+      white-space: nowrap;
+      font-size: 16px;
+      &:hover, &.active {
+        color: $button-color;
+        background-color: $background;
+        border-color: $border;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .nav-label {
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

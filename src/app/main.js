@@ -1,13 +1,16 @@
-import React, {Component} from 'react';
-import {Header} from './header/header';
-import {Techs} from './techs/techs';
-import {Footer} from './footer/footer';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {Header} from './components/header/header';
+import Calendar from './components/calendar/calendar';
+import {Footer} from './components/footer/footer';
+import {fetchEvents} from './actions/events';
 
 const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100%'
+    minHeight: '100%',
+    margin: 'auto'
   },
   main: {
     flex: 1,
@@ -17,15 +20,27 @@ const styles = {
 };
 
 export class Main extends Component {
+  componentDidMount() {
+    if (this.props.dispatch) {
+      this.props.dispatch(fetchEvents());
+    }
+  }
+
   render() {
     return (
       <div style={styles.container}>
         <Header/>
         <main style={styles.main}>
-          <Techs/>
+          <Calendar/>
         </main>
         <Footer/>
       </div>
     );
   }
 }
+
+Main.propTypes = {
+  dispatch: PropTypes.func
+};
+
+export default connect()(Main);
