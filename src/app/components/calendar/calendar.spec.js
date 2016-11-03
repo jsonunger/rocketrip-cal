@@ -2,8 +2,8 @@ import React from 'react';
 import {mount} from 'enzyme';
 import chai, {expect} from 'chai';
 import {Calendar} from './calendar';
-import NavBar from '../navbar/navbar';
-import wrapProvider from '../../utils/wrapProvider';
+import NavBar from 'app/components/navbar/navbar';
+import wrapProvider from 'app/utils/wrapProvider';
 
 chai.use(require('chai-enzyme')());
 

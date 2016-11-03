@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {format} from '../../utils/date';
+import {format} from 'app/utils/date';
 
 export const Event = ({event, style, className}) => {
   return (

@@ -1,6 +1,6 @@
 import {expect} from 'chai';
-import reducer from '../events';
-import {RECEIVE_EVENTS} from '../../utils/constants';
+import reducer from 'app/reducers/events';
+import {RECEIVE_EVENTS} from 'app/utils/constants';
 
 export default function () {
   describe('events', () => {

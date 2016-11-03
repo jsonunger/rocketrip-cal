@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import chai, {expect} from 'chai';
 import {Header} from './header';
-import {Clock} from '../clock/clock';
+import {Clock} from 'app/components/clock/clock';
 
 chai.use(require('chai-enzyme')());
 

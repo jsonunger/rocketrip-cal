@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 import chai, {expect} from 'chai';
 import NavBar from './navbar';
-import wrapProvider from '../../utils/wrapProvider';
+import wrapProvider from 'app/utils/wrapProvider';
 
 chai.use(require('chai-enzyme')());
 

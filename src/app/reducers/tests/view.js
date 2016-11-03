@@ -1,6 +1,6 @@
 import {expect} from 'chai';
-import reducer from '../view';
-import {SET_VIEW} from '../../utils/constants';
+import reducer from 'app/reducers/view';
+import {SET_VIEW} from 'app/utils/constants';
 
 export default function () {
   describe('view', () => {

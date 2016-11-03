@@ -5,7 +5,7 @@ import Week, {Week as StaticWeek} from './week';
 import {Slot} from './slot';
 import {Time} from './time';
 import {TimeGroup} from './timeGroup';
-import wrapProvider from '../../utils/wrapProvider';
+import wrapProvider from 'app/utils/wrapProvider';
 
 chai.use(require('chai-enzyme')());
 

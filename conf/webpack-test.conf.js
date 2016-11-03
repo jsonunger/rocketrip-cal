@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   module: {
@@ -37,5 +38,11 @@ module.exports = {
     'react/lib/ExecutionEnvironment': true,
     'react/lib/ReactContext': true,
     'fs': '{}'
+  },
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, '..', 'src', 'app')
+    },
+    extensions: ['', '.js', '.scss']
   }
 };

@@ -63,5 +63,11 @@ module.exports = {
   entry: {
     app: `./${conf.path.src('index')}`,
     vendor: Object.keys(pkg.dependencies)
+  },
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, '..', 'src', 'app')
+    },
+    extensions: ['', '.js', '.scss']
   }
 };

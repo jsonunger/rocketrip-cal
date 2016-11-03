@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import dateMath from '../../utils/date';
+import dateMath from 'app/utils/date';
 import cn from 'classnames';
 
 import {TimeGroup} from './timeGroup';

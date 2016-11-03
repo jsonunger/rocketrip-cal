@@ -1,7 +1,7 @@
 import chai, {expect} from 'chai';
 import mockFetch from 'fetch-mock';
-import {fetchEvents} from '../events';
-import {RECEIVE_EVENTS} from '../../utils/constants';
+import {fetchEvents} from 'app/actions/events';
+import {RECEIVE_EVENTS} from 'app/utils/constants';
 
 chai.use(require('chai-things'));
 
