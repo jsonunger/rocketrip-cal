@@ -4,11 +4,11 @@ export function timeTravel(date, amount, key) {
   return moment(date).add(amount, key).toDate();
 }
 
-export function fullFormat(date) {
-  return moment(date).format('MMMM Do, YYYY');
+export function format(date, form = 'MMMM Do, YYYY') {
+  return moment(date).format(form);
 }
 
-export function dateRange(date, view = 'week') {
+export function dateHeader(date, view = 'week') {
   const start = moment(date).startOf(view);
   const end = moment(date).endOf(view);
   if (start.isSame(end, 'day')) {
@@ -21,4 +21,19 @@ export function dateRange(date, view = 'week') {
     return `${start.format('MMM Do')} - ${end.format('MMM Do, YYYY')}`;
   }
   return `${start.format('MMM Do, YYYY')} - ${end.format('MMM Do, YYYY')}`;
+}
+
+export function dateRange(date, view = 'week') {
+  let start = moment(date).startOf(view);
+  const end = moment(date).endOf(view);
+  const dates = [start];
+  while (!start.isSame(end, 'day')) {
+    start = start.clone().add(1, 'day');
+    dates.push(start);
+  }
+  return dates;
+}
+
+export function isToday(date) {
+  return moment().isSame(date, 'day');
 }

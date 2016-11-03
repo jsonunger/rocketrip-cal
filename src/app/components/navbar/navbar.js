@@ -1,12 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import cn from 'classnames';
 
-import {dateRange} from '../../utils/dateManipulation';
+import {dateHeader} from '../../utils/dateManipulation';
 import {titleCase} from '../../utils/stringManipulation';
 import {setDate, moveForward, moveBackward} from '../../actions/date';
 import {setView} from '../../actions/view';
-import {views} from '../../utils/constants';
 
 export class NavBar extends Component {
   static propTypes = {
@@ -36,14 +34,14 @@ export class NavBar extends Component {
       <div className="navbar">
         <span className="nav-buttons">
           <button onClick={this.props.today}>Today</button>
-          <button onClick={this.props.back}>Back</button>
-          <button onClick={this.props.next}>Next</button>
         </span>
         <span className="nav-label">
-          {dateRange(this.props.date, this.props.view)}
+          {dateHeader(this.props.date, this.props.view)}
         </span>
         <span className="nav-buttons">
-          {views.map(view => <button key={view} className={cn({active: view === this.props.view})} onClick={this.handleViewChange}>{titleCase(view)}</button>)}
+          <button onClick={this.props.back}>Back</button>
+          <button className="active">{titleCase(this.props.view)}</button>
+          <button onClick={this.props.next}>Next</button>
         </span>
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 import chai, {expect} from 'chai';
-import Calendar from './calendar';
+import {Calendar} from './calendar';
 import NavBar from '../navbar/navbar';
 import wrapProvider from '../../utils/wrapProvider';
 
@@ -27,6 +27,6 @@ describe('Calendar', () => {
   });
 
   it('includes a NavBar', () => {
-    expect(calendar.find('.cal')).to.contain(<NavBar/>);
+    expect(calendar).to.contain(<NavBar/>);
   });
 });

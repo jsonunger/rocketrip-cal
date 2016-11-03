@@ -1,23 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Header} from './components/header/header';
-import Calendar from './components/calendar/calendar';
+import {Calendar} from './components/calendar/calendar';
 import {Footer} from './components/footer/footer';
 import {fetchEvents} from './actions/events';
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100%',
-    margin: 'auto'
-  },
-  main: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column'
-  }
-};
 
 export class Main extends Component {
   componentDidMount() {
@@ -28,9 +14,9 @@ export class Main extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div id="container">
         <Header/>
-        <main style={styles.main}>
+        <main>
           <Calendar/>
         </main>
         <Footer/>
