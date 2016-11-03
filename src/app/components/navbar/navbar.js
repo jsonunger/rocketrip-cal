@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {createDateHeader} from '../../utils/date';
-import {titleCase} from '../../utils/stringManipulation';
-import {setDate, moveForward, moveBackward} from '../../actions/date';
-import {setView} from '../../actions/view';
+import {createDateHeader} from 'app/utils/date';
+import {titleCase} from 'app/utils/stringManipulation';
+import {setDate, moveForward, moveBackward} from 'app/actions/date';
+import {setView} from 'app/actions/view';
 
 export class NavBar extends Component {
   static propTypes = {

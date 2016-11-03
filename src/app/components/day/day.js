@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
-import {Time} from '../week/time';
-import {Event} from '../event/event';
-import dateMath from '../../utils/date';
-import {slot} from '../../utils/style';
+import {Time} from 'app/components/week/time';
+import {Event} from 'app/components/event/event';
+import dateMath from 'app/utils/date';
+import {slot} from 'app/utils/style';
 import cn from 'classnames';
 
 function checkOverlap(eventStart, events, currentOffset) {

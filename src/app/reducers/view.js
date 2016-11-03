@@ -1,4 +1,4 @@
-import {SET_VIEW} from '../utils/constants';
+import {SET_VIEW} from 'app/utils/constants';
 
 export default function (state = 'week', action) {
   switch (action.type) {

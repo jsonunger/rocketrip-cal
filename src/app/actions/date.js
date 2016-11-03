@@ -1,4 +1,4 @@
-import {SET_DATE, DATE_FORWARD, DATE_BACKWARD} from '../utils/constants';
+import {SET_DATE, DATE_FORWARD, DATE_BACKWARD} from 'app/utils/constants';
 
 export const setDate = date => ({
   type: SET_DATE,

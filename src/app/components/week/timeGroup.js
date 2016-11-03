@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import dates, {format} from '../../utils/date';
+import dates, {format} from 'app/utils/date';
 
 import {Slot} from './slot';
 

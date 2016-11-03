@@ -1,4 +1,4 @@
-import {RECEIVE_EVENTS} from '../utils/constants';
+import {RECEIVE_EVENTS} from 'app/utils/constants';
 
 export default function (state = [], action) {
   switch (action.type) {

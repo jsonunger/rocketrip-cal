@@ -63,5 +63,11 @@ module.exports = {
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client',
     `./${conf.path.src('index')}`
-  ]
+  ],
+  resolve: {
+    alias: {
+      app: path.resolve(__dirname, '..', 'src', 'app')
+    },
+    extensions: ['', '.js', '.scss']
+  }
 };

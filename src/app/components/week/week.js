@@ -7,7 +7,7 @@ import cn from 'classnames';
 import {Header} from './header';
 import {Time} from './time';
 import {Day} from '../day/day';
-import dateMath from '../../utils/date';
+import dateMath from 'app/utils/date';
 
 function makeDays(dates, events) {
   return dates.map((date, i) => {

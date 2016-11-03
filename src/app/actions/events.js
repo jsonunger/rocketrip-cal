@@ -1,5 +1,5 @@
-import {RECEIVE_EVENTS} from '../utils/constants';
-import {get} from '../utils/ajax';
+import {RECEIVE_EVENTS} from 'app/utils/constants';
+import {get} from 'app/utils/ajax';
 
 export const receiveEvents = events => ({
   type: RECEIVE_EVENTS,

@@ -1,6 +1,6 @@
 import chai, {expect} from 'chai';
-import {setDate, moveForward, moveBackward} from '../date';
-import {SET_DATE, DATE_FORWARD, DATE_BACKWARD} from '../../utils/constants';
+import {setDate, moveForward, moveBackward} from 'app/actions/date';
+import {SET_DATE, DATE_FORWARD, DATE_BACKWARD} from 'app/utils/constants';
 
 chai.use(require('chai-things'));
 chai.use(require('chai-datetime'));
