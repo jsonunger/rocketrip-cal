@@ -35,7 +35,8 @@ $ npm test
 - Refactor SASS to use `@mixin`s and `@extend`s to better modularize duplicated code
 - Redesign the event overlap algorithm to better account for events with the same time
 - Determine which React components can be extrapolated as static, stateless components if seen in multiple places
-- Implement the ability to add Events using either a modal or a "Quick Event" add similar to Google Calendar and Apple Calendar
+- Implement the ability to add events using either a modal or a "Quick Event" add similar to Google Calendar and Apple Calendar
+- Implement all day events
 - More tests (there's always room for more tests)
 
 
