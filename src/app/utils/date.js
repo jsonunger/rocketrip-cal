@@ -58,7 +58,15 @@ export function add(date, amount, unit) {
   return moment(date).add(amount, unit).toDate();
 }
 
-export function inRange(date, min, max, unit) {
+export function inRange(date, minMax, unit) {
+  let min;
+  let max;
+  if (minMax.min) {
+    min = minMax.min;
+    max = minMax.max || min;
+  } else {
+    min = max = minMax;
+  }
   const dateMoment = moment(date);
   return dateMoment.isSameOrAfter(min, unit) && dateMoment.isSameOrBefore(max, unit);
 }
