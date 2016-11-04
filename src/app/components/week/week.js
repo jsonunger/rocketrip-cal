@@ -71,8 +71,10 @@ export class Week extends Component {
   }
 
   checkScroll() {
-    const scrollTo = dateMath.startOf(new Date(), 'day');
-    const mill = scrollTo - dateMath.startOf(scrollTo, 'day');
+    const day = new Date();
+    day.setHours(8);
+    const scrollTo = dateMath.startOf(day, 'hour');
+    const mill = Number(scrollTo) - Number(dateMath.startOf(scrollTo, 'day'));
     const total = Number(dateMath.endOf(new Date(), 'day')) - Number(dateMath.startOf(new Date(), 'day'));
     this._scroll = mill / total;
   }
