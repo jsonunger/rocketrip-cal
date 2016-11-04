@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 import chai, {expect} from 'chai';
-import Week, {Week as StaticWeek} from './week';
+import View from './view';
 import {Slot} from './slot';
 import {Time} from './time';
 import {TimeGroup} from './timeGroup';
@@ -9,26 +9,24 @@ import wrapProvider from 'app/utils/wrapProvider';
 
 chai.use(require('chai-enzyme')());
 
-describe('Week', () => {
-  let mountedWeek;
-  let staticWeek;
+describe('View', () => {
+  let mountedView;
 
   beforeEach(() => {
-    mountedWeek = mount(wrapProvider(<Week/>));
-    staticWeek = mount(<StaticWeek events={[]} date={new Date()}/>);
+    mountedView = mount(wrapProvider(<View/>));
   });
 
   it('should be a div', () => {
-    expect(mountedWeek).to.have.tagName('div');
+    expect(mountedView).to.have.tagName('div');
   });
 
-  it('has week id', () => {
-    expect(mountedWeek).to.have.exactly(1).descendants('#week');
+  it('has view id', () => {
+    expect(mountedView).to.have.exactly(1).descendants('#view');
   });
 
   it('has the corresponding subComponents', () => {
-    expect(staticWeek).to.have.descendants(Time);
-    const time = staticWeek.find(Time);
+    expect(mountedView).to.have.descendants(Time);
+    const time = mountedView.find(Time);
     expect(time).to.have.descendants(TimeGroup);
     const timeGroups = time.find(TimeGroup);
     timeGroups.forEach(timeGroup => {

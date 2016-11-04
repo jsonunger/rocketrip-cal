@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 import chai, {expect} from 'chai';
 import {Day} from './day';
-import {Time} from 'app/components/week/time';
+import {Time} from 'app/components/view/time';
 import {Event} from 'app/components/event/event';
 
 chai.use(require('chai-enzyme')());

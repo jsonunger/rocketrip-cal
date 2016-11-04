@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Time} from 'app/components/week/time';
+import {Time} from 'app/components/view/time';
 import {Event} from 'app/components/event/event';
 import dateMath from 'app/utils/date';
 import {slot} from 'app/utils/style';

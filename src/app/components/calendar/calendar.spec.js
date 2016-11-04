@@ -3,6 +3,7 @@ import {mount} from 'enzyme';
 import chai, {expect} from 'chai';
 import {Calendar} from './calendar';
 import NavBar from 'app/components/navbar/navbar';
+import View from 'app/components/view/view';
 import wrapProvider from 'app/utils/wrapProvider';
 
 chai.use(require('chai-enzyme')());
@@ -26,7 +27,8 @@ describe('Calendar', () => {
     expect(calendar).to.have.exactly(1).descendants('.cal');
   });
 
-  it('includes a NavBar', () => {
+  it('includes a NavBar and a View', () => {
     expect(calendar).to.contain(<NavBar/>);
+    expect(calendar).to.contain(<View/>);
   });
 });

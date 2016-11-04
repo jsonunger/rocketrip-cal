@@ -1,13 +1,13 @@
 import React from 'react';
 
 import NavBar from 'app/components/navbar/navbar';
-import Week from 'app/components/week/week';
+import View from 'app/components/view/view';
 
 export const Calendar = () => (
   <div style={{margin: 'auto'}}>
     <div className="cal">
       <NavBar/>
-      <Week/>
+      <View/>
     </div>
   </div>
 );
